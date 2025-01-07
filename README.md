@@ -74,7 +74,7 @@ The drone will take off and follow the optimised path between hospitals.
 ### Notes:
 - Simulated drone speed: 10 m/s. Real-world speed of the selected drone (DJI Matrice 300 RTK): up to 17 m/s.
 - Expected real-world delivery time: <6 minutes.
-- Flights will ideally be at 100m above ground, enabling 2D algorithms to be sufficient for path planning. This can be varied in ```MAIN_waypoint_generator.py```. 
+- Flights will ideally be at 100m above ground, enabling 2D algorithms to be sufficient for path planning. This can be (optionally) varied in ```MAIN_waypoint_generator.py```. 
 
 ## Credits
 - **Author:** Celal Konuklu ([GitHub Profile](https://github.com/celalk-172))
