@@ -72,7 +72,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 The drone will take off and follow the optimised path between hospitals.
 
 ### Notes:
-- Simulated drone speed: 10 m/s. Real-world speed of the selected drone (DJI Matrice 300 RTK): up to 17 m/s.
+- Simulated drone speed: 10 m/s. Real-world speed of the selected drone ([DJI Matrice 300 RTK](https://www.dji.com/uk/support/product/matrice-300)): up to 17 m/s.
 - Expected real-world delivery time: <6 minutes.
 - Flights will ideally be at 100m above ground, enabling 2D algorithms to be sufficient for path planning. This can be (optionally) varied in ```MAIN_waypoint_generator.py```. 
 
