@@ -4,8 +4,12 @@
 ## Project Description
 This project evaluates the best flight path for delivering medical supplies between **Bristol Royal Infirmary** and **Southmead Hospital** using Delaunay Triangulation for obstacle-aware path planning. It highlights the practical application of computational geometry in autonomous drone navigation. 
 
-![Optimal Path using Delaunay Triangulation](images/OptimalPath_Python.png)
-![Simulated Path with 'Spline Waypoints'](images/MissionPlanner_Simulation.png)
+<!-- Display the images side by side -->
+<div align="center">
+  <img src="images/OptimalPath_Python.png" width="450" style="margin-right: 20px;" />
+  <img src="images/MissionPlanner_Simulation.png" width="450" />
+</div>
+
 
 ### Key Features:
 - Obstacle-aware flight path planning.
