@@ -39,7 +39,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 ## How to Install and Run the Project
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/delaunay-path-planning.git
+   git clone https://github.com/celalk-172/delaunay-waypoint-generator
    ```
 2. Install required dependencies:
    ```bash
