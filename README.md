@@ -77,7 +77,7 @@ The drone will take off and follow the optimised path between hospitals.
 - Flights will ideally be at 100m above ground, enabling 2D algorithms to be sufficient for path planning. This can be varied in ```MAIN_waypoint_generator.py```. 
 
 ## Credits
-- **Author:** Celal Konuklu ([GitHub Profile]((https://github.com/celalk-172))
+- **Author:** Celal Konuklu ([GitHub Profile](https://github.com/celalk-172))
 - **Acknowledgements:**
   - [Dr. Arthur Richards](https://github.com/arthurrichards77/smply) for providing the algorithm inspiration.
 
