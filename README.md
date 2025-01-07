@@ -28,7 +28,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 1. [File Definitions](#file-definitions)
 2. [How to Install and Run the Project](#how-to-install-and-run-the-project)
 3. [How to Use the Project](#how-to-use-the-project)
-4. [Mission Planner Instructions](#mission-planner-instructions)
+4. [Mission Planner Instructions (External)](#mission-planner-instructions-external)
 5. [Credits](#credits)
 
 ## File Definitions
@@ -59,7 +59,7 @@ This project evaluates the best flight path for delivering medical supplies betw
    - Final optimised flight path.
 4. Retrieve the waypoint file (`MissionPlanner_Waypoints.txt`) for use in [Mission Planner](https://ardupilot.org/planner/).
 
-## Mission Planner Instructions
+## Mission Planner Instructions (External)
 1. Open Mission Planner and navigate to the **PLAN** tab.
 2. Load `MissionPlanner_Waypoints.txt`. Increase WP radius to 15m for smoother turns.
 3. Go to **SIMULATION** and select the Multirotor (Stable Version).
