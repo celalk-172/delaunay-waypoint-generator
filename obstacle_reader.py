@@ -213,5 +213,4 @@ def obstacle_read():
             
     obstacles.append(np.array(obstacle_coord))
     
-    
     return obstacles

@@ -23,10 +23,6 @@ def delaunay_path(outer_points,obstacles,start_point,start_tri,goal_point,goal_t
     # The Delaunay triangles don't necessary align with the edges of our obstacles. 
     # Hence, 'Constrained Delaunay triangulation' is implemented 
 
-    #plt.figure()
-    #plot_poly(outer_points,'g-')
-    #for ob in obstacles:
-        #plot_poly(ob,'r-')
     all_points = outer_points
     obst_edges = set([])
     for ob in obstacles:
@@ -36,8 +32,6 @@ def delaunay_path(outer_points,obstacles,start_point,start_tri,goal_point,goal_t
             new_edge = (len(all_points)-num_ob_points+ii,len(all_points)-num_ob_points+(ii+1)%num_ob_points)
             obst_edges.add((min(new_edge),max(new_edge)))
     tri = Delaunay(all_points)
-    #plt.triplot(all_points[:,0], all_points[:,1], tri.simplices.copy(),'k--')
-    #plt.show()
 
     # Identify the missing edges as those in the set of obstacle edges that are not included in the triangle edges.
     
@@ -70,7 +64,7 @@ def delaunay_path(outer_points,obstacles,start_point,start_tri,goal_point,goal_t
     tri_nx = [[] for t in tri.simplices]
     new_nx_idx = 0
     
-    #plt.figure('All Nodes')
+    
     for ii in range(num_tris):
         for jj in tri.neighbors[ii]:
             if jj>ii:
@@ -97,18 +91,8 @@ def delaunay_path(outer_points,obstacles,start_point,start_tri,goal_point,goal_t
     
     num_nx_points = len(nx_points)
     d = d[0:num_nx_points,0:num_nx_points]
-                        
-    #plot_poly(outer_points,'b-')
-    #for ob in obstacles:
-    #    plot_poly(ob,'r-')
-    #plt.triplot(all_points[:,0], all_points[:,1], tri.simplices.copy(),'k--')
-    #plt.title('All Possible Nodes')
-    #plt.xlabel('Longitude')
-    #plt.ylabel('Latitude')
-    #plt.show()
     
     ## Adding the start and goal
-    
     # That's the roadmap done, and is included in the distance matrix.
     def append_dist_matrix(d):
         (r,c)=d.shape
@@ -188,7 +172,6 @@ def delaunay_path(outer_points,obstacles,start_point,start_tri,goal_point,goal_t
     plt.yticks(np.arange(51.45, 51.505, 0.005))  # Adjust as needed
     plt.xlabel('Longitude')
     plt.ylabel('Latitude')
-    
     #plt.show()
     
     return all_points, tri, path_nodes
