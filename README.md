@@ -1,4 +1,4 @@
-# delaunay-waypoint-generator
+# delaunay-waypoint-generator-drone
 # Optimised Drone Path Planning Using Delaunay Triangulation
 
 ## Project Description
