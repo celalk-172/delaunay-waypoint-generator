@@ -6,8 +6,12 @@ This project evaluates the best flight path for delivering medical supplies betw
 
 <!-- Display the images side by side -->
 <div align="center">
-  <img src="images/OptimalPath_Python.png" width="450" style="margin-right: 20px;" />
-  <img src="images/MissionPlanner_Simulation.png" width="450" />
+  <img src="images/Resulting_Path.png" width="562" style="margin-right: 20px;" />
+  <img src="images/MissionPlanner_simulation.png" width="230" />
+</div>
+<!-- Centralised figure description -->
+<div align="center">
+  <p>Figures: (Left) Optimal Path using Delaunay Triangulation, (Right) Simulated Path with 'Spline Waypoints'</p>
 </div>
 
 
