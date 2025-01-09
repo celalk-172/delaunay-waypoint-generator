@@ -75,7 +75,7 @@ def haversine(lat1, lon1, lat2, lon2):
     return distance, bearing
 
 distance, bearing = haversine(BRI_lat,BRI_lon,SH_lat,SH_lon)
-print(f"Straight line distance between the two helipads: {round(distance,1)} metres")
+print(f"Distance between the two helipads: {round(distance,1)} metres")
 print(f"Bearing from Bristol Royal Infirmary to Southmead Hospital: {round(bearing,2)} degrees")
 
 
