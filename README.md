@@ -92,6 +92,8 @@ The drone will take off and follow the optimised path between hospitals.
 - **Acknowledgements:**
   - [Dr. Arthur Richards](https://github.com/arthurrichards77/smply) for providing the algorithm inspiration.
 
+**Note:** A detailed PDF document outlining the medical delivery campaign is also included in the repository. It describes the project’s potential real-world application, logistics, and expected benefits for the healthcare sector.
+
 ---
 
 For more details, refer to the project files and documentation.
