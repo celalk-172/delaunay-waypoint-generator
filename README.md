@@ -63,7 +63,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 
 ## How to Use the Project
 1. Run the main file: ```python MAIN_waypoint_generator.py```
-2. Specify the starting hospital when prompted.
+   - Specify the starting hospital in ```MAIN_waypoint_generator.py``` if desired.
 3. Observe the visualisation plots:
    - Helipads and obstacles within the workspace.
    - Delaunay triangulation process.
