@@ -1,9 +1,8 @@
 import math
 import matplotlib.pyplot as plt
 import numpy as np
-#from scipy.spatial import Delaunay
-import Delaunay_Triangulation
-import obstacle_reader
+import Delaunay_Triangulation_v2 # Import Delaunay triangulation algorithm
+import obstacle_reader_v2 # Import obstacle reading function
 import csv
 
 ####################################### USER INPUT ########################################
@@ -24,6 +23,19 @@ SH_lon = -2.5925803
 
 # Define where the drone will start (i.e. take-off)
 def start_choose(start):
+    """
+    Function to choose the starting point (either BRI or SH) and determine the corresponding triangle.
+    
+    Parameters:
+    - start (str): The starting hospital, 'BRI' or 'SH'.
+    
+    Returns:
+    - start_point (np.array): Coordinates of the starting point [longitude, latitude].
+    - start_tri (int): Triangle index of the starting point (manually determined).
+    - goal_point (np.array): Coordinates of the goal point [longitude, latitude].
+    - goal_tri (int): Triangle index of the goal point (manually determined).
+    """
+    
     if start == 'BRI':
         start_point = np.array([BRI_lon,BRI_lat])
         start_tri = 18 #triangle in which the start point is - manually determined from Delaunay. (!DO NOT CHANGE!)
@@ -45,8 +57,21 @@ start_point, start_tri, goal_point, goal_tri = start_choose(start_hospital)
 
 
 ## Find the distance and bearing between helipads using the haversine formula ##
-
 def haversine(lat1, lon1, lat2, lon2):
+    """
+    Calculate the distance and bearing between two geographical points using the Haversine formula.
+    
+    Parameters:
+    - lat1 (float): Latitude of the first point.
+    - lon1 (float): Longitude of the first point.
+    - lat2 (float): Latitude of the second point.
+    - lon2 (float): Longitude of the second point.
+    
+    Returns:
+    - distance (float): The great-circle distance between the two points (in meters).
+    - bearing (float): The bearing angle from the first point to the second point (in degrees).
+    """
+    
     # Radius of the Earth in meters
     earth_radius = 6371000  # Approximate value, can vary slightly depending on the Earth model
 
@@ -74,8 +99,9 @@ def haversine(lat1, lon1, lat2, lon2):
 
     return distance, bearing
 
+# Calculate and print distance and bearing between BRI and SH
 distance, bearing = haversine(BRI_lat,BRI_lon,SH_lat,SH_lon)
-print(f"Distance between the two helipads: {round(distance,1)} metres")
+print(f"Straight line distance between the two helipads: {round(distance,1)} metres")
 print(f"Bearing from Bristol Royal Infirmary to Southmead Hospital: {round(bearing,2)} degrees")
 
 
@@ -85,7 +111,7 @@ plt.figure('Obstacle Visualisation')
 plt.scatter([BRI_lon, SH_lon], [BRI_lat, SH_lat], color='green', label='Helipads')
 plt.gca().set_aspect('equal', adjustable='datalim')
 
-# Draw a line to represent the distance between the points
+# Draw a line to represent the distance between the points (optional)
 #plt.plot([BRI_lon, SH_lon], [BRI_lat, SH_lat], linestyle='--', color='blue', label='Distance')
 
 # Set labels and legend
@@ -96,8 +122,7 @@ plt.grid()
 
 
 ## Define the workspace & obstacles ##
-
-# First, define the area over which to evaluate (as [lon,lat]])
+# First, define the boundary of the workspace (as [lon,lat]])
 lat_margin = 0.0065 #i.e. ~700m
 lon_margin = 0.0125 #i.e. ~1100m
 outer_points = np.array([[BRI_lon-lon_margin,BRI_lat-lat_margin],[BRI_lon-lon_margin,SH_lat+lat_margin]
@@ -113,12 +138,20 @@ with open(output_file, 'w') as file:
 
 # Then define the obstacles. A function is created to read the obstacles from .poly
 # files defined in MissionPlanner, using data from https://dronesafetymap.com
-
-obstacles = obstacle_coord = obstacle_reader.obstacle_read()
+obstacles = obstacle_coord = obstacle_reader_v2.obstacle_read()
 
 
 ## Plot to show the obstacles
 def plot_poly(points,fmt='b-',**kwargs):
+    """
+    Function to plot a polygon on a map.
+    
+    Parameters:
+    - points (np.array): Coordinates of the polygon vertices [[lon, lat], ...]
+    - fmt (str): Format for plotting the polygon (default 'b-' for blue).
+    - **kwargs: Additional keyword arguments passed to plt.plot().
+    """
+    
     plt.plot(np.append(points[:,0],points[0,0]),np.append(points[:,1],points[0,1]),fmt,**kwargs)
 
 plot_poly(outer_points, 'b-', label='Workspace')
@@ -133,13 +166,14 @@ plt.legend()
 plt.title('Obstacle Visualisation')
 plt.xlim(-2.63, -2.561)
 plt.ylim(51.45, 51.505)
-#plt.show()
+#plt.show() # Uncomment to visualize this plot (optional)
 
 ### Now ready for Delaunay Algorithm ###
-all_points, tri, path_nodes = Delaunay_Triangulation.delaunay_path(outer_points,obstacles,start_point,start_tri,goal_point,goal_tri)
+# Call the Delaunay pathfinding algorithm
+all_points, tri, path_nodes = Delaunay_Triangulation_v2.delaunay_path(outer_points,obstacles,start_point,start_tri,goal_point,goal_tri)
 
-## Mission Planner Waypoints 
-# Note: The waypoints yield sharp turns. This can be overcome by enabling 'spline waypoints' in the waypoint file
+## Mission Planner Waypoints ## 
+# Note: The waypoints yield sharp turns. This can be overcome by enabling 'spline waypoints' in the waypoint file [at MissionPlanner]
 
 # Constants (DO NOT CHANGE)
 NAV_WAYPOINT = 16
@@ -149,8 +183,19 @@ TAKEOFF = 22
 MAV_FRAME_GLOBAL_TERRAIN_ALT = 10
 MAV_FRAME_GLOBAL = 0
 
-# Waypoints
+# Function to write waypoints in a suitable format for Mission Planner
 def waypoint_write(alt,filename):
+    """
+    Function to generate waypoints for Mission Planner.
+    
+    Parameters:
+    - alt (int): Flight altitude above terrain (in meters).
+    - filename (str): Name of the file where waypoints will be saved.
+    
+    Returns:
+    - waypoints (list): A list of waypoints with their respective details.
+    """
+
     home_lat = path_nodes[0][0]
     home_lon = path_nodes[0][1]
     
@@ -170,7 +215,7 @@ def waypoint_write(alt,filename):
         else:
             waypoints.append([wp_idx,0,MAV_FRAME_GLOBAL_TERRAIN_ALT,NAV_SPLINE_WAYPOINT,0,0,0,0,lat,lon,alt,1])
     
-    
+    # Save waypoints
     with open(filename, 'w', newline='') as f:
         writer = csv.writer(f, delimiter='\t')
         writer.writerow(['QGC WPL 110'])
