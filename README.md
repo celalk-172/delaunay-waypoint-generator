@@ -39,6 +39,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 ***Code Quality & Organisation Improvements***
 - Implement error handling to manage potential exceptions, such as file not found errors when reading obstacle files or issues during triangulation.
 - Automating the import process into [Mission Planner](https://ardupilot.org/planner/).
+- Develop an interactive GUI to allow users to input parameters, visualize obstacles, and view the generated path interactively.
 
 ## Table of Contents
 1. [File Definitions](#file-definitions)
