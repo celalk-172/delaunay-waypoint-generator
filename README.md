@@ -32,8 +32,13 @@ This project evaluates the best flight path for delivering medical supplies betw
 - Balancing path optimisation with computational efficiency.
 
 ### Future Enhancements:
+***Overall Agorithm Improvements***
 - Implement dynamic obstacle detection and avoidance.
 - Implement a 3D path planning algorithm.
+
+***Code Quality & Organisation Improvements***
+- Implement error handling to manage potential exceptions, such as file not found errors when reading obstacle files or issues during triangulation.
+- Automating the import process into [Mission Planner](https://ardupilot.org/planner/).
 
 ## Table of Contents
 1. [File Definitions](#file-definitions)
