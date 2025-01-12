@@ -225,4 +225,4 @@ def waypoint_write(alt,filename):
 
 waypoints = waypoint_write(alt,'MissionPlanner_Waypoints.txt')
 
-plt.show()
+plt.show() # visualise all open plots
