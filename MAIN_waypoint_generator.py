@@ -165,7 +165,7 @@ with open(output_file, 'w') as file:
 
 # Then define the obstacles. A function is created to read the obstacles from .poly
 # files defined in MissionPlanner, using data from https://dronesafetymap.com
-obstacles = obstacle_coord = obstacle_reader_v2.obstacle_read()
+obstacles = obstacle_coord = Obstacle_Reader_v2.obstacle_read()
 
 
 ## Plot to show the obstacles
