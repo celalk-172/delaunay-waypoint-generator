@@ -2,7 +2,7 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 import Delaunay_Triangulation_v2 # Import Delaunay triangulation algorithm
-import obstacle_reader_v2 # Import obstacle reading function
+import Obstacle_Reader_v2 # Import obstacle reading function
 import csv
 
 ####################################### USER INPUT ########################################
