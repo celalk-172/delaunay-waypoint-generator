@@ -68,13 +68,15 @@ This project evaluates the best flight path for delivering medical supplies betw
    ```
 
 ## How to Use the Project
-1. Run the main file: ```python MAIN_waypoint_generator.py```
-   - Specify the starting hospital and the flight altitude in ```MAIN_waypoint_generator.py``` if desired.
-2. Observe the visualisation plots:
+1. Define user input in ```MAIN_waypoint_generator.py```:
+   - Set the `start_hospital` variable (`'BRI'` for Bristol Royal Infirmary or `'SH'` for Southmead Hospital).
+   - Set the `alt` variable to define the flight altitude.
+2. Run the main file: ```python MAIN_waypoint_generator.py```
+3. Observe the visualisation plots:
    - Helipads and obstacles within the workspace.
    - Delaunay triangulation process.
    - Final optimised flight path.
-3. Retrieve the waypoint file (`MissionPlanner_Waypoints.txt`) for use in [Mission Planner](https://ardupilot.org/planner/).
+4. Retrieve the waypoint file (`MissionPlanner_Waypoints.txt`) for use in [Mission Planner](https://ardupilot.org/planner/).
 
 ## Mission Planner Instructions (External)
 1. Open Mission Planner and navigate to the **PLAN** tab.
@@ -98,9 +100,9 @@ The drone will take off and follow the optimised path between hospitals.
 - **Acknowledgements:**
   - [Dr. Arthur Richards](https://github.com/arthurrichards77/smply) for providing the algorithm inspiration.
 
-**Note:** A detailed PDF document outlining the medical delivery campaign is also included in the repository. It describes the project’s potential real-world application, logistics, and expected benefits for the healthcare sector.
-
 ---
+
+**Note:** A detailed PDF document ("Medical Delivery Drone Proposal.pdf") outlining the medical delivery campaign is also included in the repository. It describes the project in detail, including its potential real-world application, logistics, and expected benefits for the healthcare sector.
 
 For more details, refer to the project files and documentation.
 
