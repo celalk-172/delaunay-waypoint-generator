@@ -5,6 +5,33 @@ import Delaunay_Triangulation_v2 # Import Delaunay triangulation algorithm
 import Obstacle_Reader_v2 # Import obstacle reading function
 import csv
 
+"""
+This script performs path planning for drones using Delaunay Triangulation.
+It generates a roadmap by considering an outer boundary, obstacles, and start/goal points.
+The output includes the triangulation, visualized roadmap, and a calculated optimal path.
+
+### Description:
+The script enables drones to navigate between two predefined helipads (Bristol Royal Infirmary and Southmead Hospital), 
+avoiding obstacles using Delaunay triangulation. It also generates waypoints compatible with Mission Planner.
+
+### User Input:
+- `start_hospital`: Choose the starting helipad ('BRI' for Bristol Royal Infirmary, or 'SH' for Southmead Hospital).
+- `alt`: Set the flight altitude above the terrain (in meters).
+
+### Features:
+- Computes the distance and bearing between helipads.
+- Reads obstacles from `.poly` files and visualizes them.
+- Generates a triangulated map and determines the shortest obstacle-free path.
+- Outputs waypoints for Mission Planner.
+
+### Outputs:
+1. Plots:
+   - Workspace boundary and obstacles.
+   - Delaunay triangulation and the optimal path.
+2. Waypoint File:
+   - A `.txt` file named `MissionPlanner_Waypoints.txt` for use with Mission Planner.
+"""
+
 ####################################### USER INPUT ########################################
 # Define the hospital from which the drone will take-off:
 start_hospital = 'BRI' #'BRI' for Bristol Royal Infirmary, or 'SH' for Southmead Hospital
