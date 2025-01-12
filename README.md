@@ -19,7 +19,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 - Obstacle-aware flight path planning.
 - Integration with [Mission Planner](https://ardupilot.org/planner/) for waypoint generation and simulation.
 - Visualisation of helipads, obstacles, and optimised paths.
-- Customisable altitude settings for varied flight requirements.
+- Customisable altitude settings and choice of starting helipad.
 
 #### Technologies Used:
 - Python (core logic and visualisation)
@@ -49,7 +49,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 5. [Credits](#credits)
 
 ## File Definitions
-- **`MAIN_waypoint_generator.py`**: Evaluates the optimal flight path using Delaunay Triangulation.
+- **`MAIN_waypoint_generator.py`**: Evaluates the optimal flight path using Delaunay Triangulation. Users can customise flight altitude above terrain (`alt`) and the starting helipad (`start_hospital`)
 - **Obstacle Files (`obstacle_files/obstacle_xxx.poly`)**: Coordinates of restricted airspaces created using [Mission Planner](https://ardupilot.org/planner/) and [Drone Safety Map](https://dronesafetymap.com/). These are read by **`Obstacle_Reader_v2.py`**.
 - **`Delaunay_Triangulation_v2.py`**: Processes obstacle locations and start/goal points to generate the optimal path within a defined workspace.
 
@@ -69,12 +69,12 @@ This project evaluates the best flight path for delivering medical supplies betw
 
 ## How to Use the Project
 1. Run the main file: ```python MAIN_waypoint_generator.py```
-   - Specify the starting hospital in ```MAIN_waypoint_generator.py``` if desired.
-3. Observe the visualisation plots:
+   - Specify the starting hospital and the flight altitude in ```MAIN_waypoint_generator.py``` if desired.
+2. Observe the visualisation plots:
    - Helipads and obstacles within the workspace.
    - Delaunay triangulation process.
    - Final optimised flight path.
-4. Retrieve the waypoint file (`MissionPlanner_Waypoints.txt`) for use in [Mission Planner](https://ardupilot.org/planner/).
+3. Retrieve the waypoint file (`MissionPlanner_Waypoints.txt`) for use in [Mission Planner](https://ardupilot.org/planner/).
 
 ## Mission Planner Instructions (External)
 1. Open Mission Planner and navigate to the **PLAN** tab.
