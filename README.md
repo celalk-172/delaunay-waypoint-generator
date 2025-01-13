@@ -35,6 +35,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 ***Overall Agorithm Improvements***
 - Implement dynamic obstacle detection and avoidance.
 - Implement a 3D path planning algorithm.
+- Implement other path planning algorithms (i.e. Visibility Graph, Rapidly Exploring Random Tree, etc.) and allow the user to choose which one to use.
 
 ***Code Quality & Organisation Improvements***
 - Implement error handling to manage potential exceptions, such as file not found errors when reading obstacle files or issues during triangulation.
