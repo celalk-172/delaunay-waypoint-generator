@@ -29,7 +29,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 ### Challenges Faced:
 - Handling complex obstacle geometries efficiently.
 - Ensuring compatibility with [Mission Planner](https://ardupilot.org/planner/)'s waypoint format.
-- Balancing path optimisation with computational efficiency.
+- Balancing path optimisation with computational efficiency and drone safety.
 
 ### Future Enhancements:
 ***Overall Agorithm Improvements***
