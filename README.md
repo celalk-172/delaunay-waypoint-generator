@@ -1,6 +1,14 @@
 # delaunay-waypoint-generator-drone
 # Optimised Drone Path Planning Using Delaunay Triangulation
 
+## Table of Contents
+1. [Project Description](#project-description)
+2. [File Definitions](#file-definitions)
+3. [How to Install and Run the Project](#how-to-install-and-run-the-project)
+4. [How to Use the Project](#how-to-use-the-project)
+5. [Mission Planner Instructions (External)](#mission-planner-instructions-external)
+6. [Credits](#credits)
+
 ## Project Description
 This project evaluates the best flight path for delivering medical supplies between **Bristol Royal Infirmary** and **Southmead Hospital** using Delaunay Triangulation for obstacle-aware path planning. It highlights the practical application of computational geometry in autonomous drone navigation. 
 
@@ -41,13 +49,6 @@ This project evaluates the best flight path for delivering medical supplies betw
 - Implement error handling to manage potential exceptions, such as file not found errors when reading obstacle files or issues during triangulation.
 - Automating the import process into [Mission Planner](https://ardupilot.org/planner/).
 - Develop an interactive GUI to allow users to input parameters, visualize obstacles, and view the generated path interactively.
-
-## Table of Contents
-1. [File Definitions](#file-definitions)
-2. [How to Install and Run the Project](#how-to-install-and-run-the-project)
-3. [How to Use the Project](#how-to-use-the-project)
-4. [Mission Planner Instructions (External)](#mission-planner-instructions-external)
-5. [Credits](#credits)
 
 ## File Definitions
 - **`MAIN_waypoint_generator.py`**: Evaluates the optimal flight path using Delaunay Triangulation. Users can customise flight altitude above terrain (`alt`) and the starting helipad (`start_hospital`)
