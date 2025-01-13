@@ -51,7 +51,7 @@ This project evaluates the best flight path for delivering medical supplies betw
 
 ## File Definitions
 - **`MAIN_waypoint_generator.py`**: Evaluates the optimal flight path using Delaunay Triangulation. Users can customise flight altitude above terrain (`alt`) and the starting helipad (`start_hospital`)
-- **Obstacle Files (`obstacle_files/obstacle_xxx.poly`)**: Coordinates of restricted airspaces created using [Mission Planner](https://ardupilot.org/planner/) and [Drone Safety Map](https://dronesafetymap.com/). These are read by **`Obstacle_Reader_v2.py`**.
+- **Obstacle Files (`obstacle_files/obstacle_xxx.poly`)**: Coordinates of restricted airspaces created using [Mission Planner](https://ardupilot.org/planner/) and [Drone Safety Map](https://dronesafetymap.com/). These are read into suitable format by **`Obstacle_Reader_v2.py`**.
 - **`Delaunay_Triangulation_v2.py`**: Processes obstacle locations and start/goal points to generate the optimal path within a defined workspace.
 
 ## How to Install and Run the Project
